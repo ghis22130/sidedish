@@ -2,7 +2,7 @@
 그룹프로젝트 #2
 
 # 배포주소 
-ec2-54-180-115-20.ap-northeast-2.compute.amazonaws.com:8080
+[배포주소](ec2-54-180-115-20.ap-northeast-2.compute.amazonaws.com:8080)
 
 Team 10
 
