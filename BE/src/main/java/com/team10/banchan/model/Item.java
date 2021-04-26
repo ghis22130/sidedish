@@ -92,6 +92,14 @@ public class Item {
         this.deliveryDays.add(deliveryDay);
     }
 
+    public boolean inStock(Integer quantity) {
+        return stock >= quantity;
+    }
+
+    public String calculateTotalPrice(Integer quantity) {
+        return prices.calculateTotalPrice(quantity);
+    }
+
     public ItemDetail itemDetail() {
         return ItemDetail.of(
                 itemImages.getTopImage(),

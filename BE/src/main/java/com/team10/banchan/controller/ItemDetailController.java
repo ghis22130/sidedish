@@ -1,12 +1,11 @@
 package com.team10.banchan.controller;
 
 import com.team10.banchan.dto.ItemDetailResponse;
+import com.team10.banchan.dto.OrderInfo;
+import com.team10.banchan.model.Order;
 import com.team10.banchan.response.ResponseBody;
 import com.team10.banchan.service.ItemDetailService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +27,10 @@ public class ItemDetailController {
     @GetMapping
     public ResponseBody<List<ItemDetailResponse>> itemDetails() {
         return ResponseBody.ok(itemDetailService.itemDetails());
+    }
+
+    @PostMapping("/{itemId}/order")
+    public ResponseBody<OrderInfo> order(@PathVariable Long itemId, @RequestBody Integer quantity) {
+        return ResponseBody.ok(itemDetailService.order(itemId, quantity));
     }
 }

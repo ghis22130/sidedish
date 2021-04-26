@@ -58,3 +58,10 @@ CREATE TABLE IF NOT EXISTS delivery_day (
     `the_day_of_week` CHAR(3),
     CONSTRAINT delivery_day_item_foreign_key FOREIGN KEY (`item`) REFERENCES `item`(id)
 );
+
+CREATE TABLE IF NOT EXISTS `order` (
+    `id` BIGINT AUTO_INCREMENT PRIMARY KEY,
+    `item` BIGINT,
+    `quantity` INT,
+    CONSTRAINT order_item_foreign_key FOREIGN KEY (`item`) REFERENCES `item`(id)
+);
