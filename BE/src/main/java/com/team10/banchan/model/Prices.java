@@ -46,4 +46,8 @@ public class Prices {
         }
         return DECIMAL_FORMAT.format(price);
     }
+
+    public String calculateTotalPrice(Integer quantity) {
+        return getFormattedPrice(sPrice.multiply(new BigDecimal(quantity)));
+    }
 }
