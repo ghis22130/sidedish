@@ -2,6 +2,7 @@ package com.team10.banchan.model;
 
 import com.team10.banchan.dto.ItemDetail;
 import com.team10.banchan.dto.ItemSummary;
+import com.team10.banchan.exception.OutOfStockException;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Embedded;
 
@@ -92,8 +93,11 @@ public class Item {
         this.deliveryDays.add(deliveryDay);
     }
 
-    public boolean inStock(Integer quantity) {
-        return stock >= quantity;
+    public Item order(Integer quantity) {
+        if(stock < quantity) {
+            throw new OutOfStockException("주문수량보다 재고가 적습니다", stock);
+        }
+        return new Item(id, section, category, itemImages, description, prices, stock - quantity, detailSections, thumbImages, badges, deliveryTypes, deliveryDays);
     }
 
     public String calculateTotalPrice(Integer quantity) {

@@ -3,7 +3,6 @@ package com.team10.banchan.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.team10.banchan.model.Item;
 import com.team10.banchan.model.Order;
-import org.springframework.data.relational.core.sql.In;
 
 public class OrderInfo {
     private final Long order;

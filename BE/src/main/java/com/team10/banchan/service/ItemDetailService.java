@@ -10,6 +10,7 @@ import com.team10.banchan.repository.ItemRepository;
 import com.team10.banchan.repository.OrderRepository;
 import org.graalvm.compiler.core.common.type.ArithmeticOpTable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,11 +27,10 @@ public class ItemDetailService {
         this.orderRepository = orderRepository;
     }
 
+    @Transactional
     public OrderInfo order(Long itemId, Integer quantity) {
         Item item = itemRepository.findById(itemId).orElseThrow(() -> new NotFoundException("존재하지 않는 반찬입니다."));
-        if(!item.inStock(quantity)) {
-            throw new OutOfStockException("주문수량보다 재고가 부족합니다");
-        }
+        itemRepository.save(item.order(quantity));
         Order order = orderRepository.save(Order.newOrder(itemId, quantity));
         return OrderInfo.of(order, item);
     }
