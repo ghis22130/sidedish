@@ -17,15 +17,15 @@ public class ItemDetail {
     private final String deliveryInfo;
 
     private final String deliveryFee;
-    private final String nPrices;
-    private final String sPrices;
+    private final String nPrice;
+    private final String sPrice;
 
     private final List<String> detailSection;
     private final List<String> badges;
 
     private final Boolean inStock;
 
-    private ItemDetail(String topImage, List<String> thumbImages, String title, String productDescription, String point, String deliveryInfo, String deliveryFee, String nPrices, String sPrices, List<String> detailSection, List<String> badges, Boolean inStock) {
+    private ItemDetail(String topImage, List<String> thumbImages, String title, String productDescription, String point, String deliveryInfo, String deliveryFee, String nPrice, String sPrice, List<String> detailSection, List<String> badges, Boolean inStock) {
         this.topImage = topImage;
         this.thumbImages = thumbImages;
         this.title = title;
@@ -33,8 +33,8 @@ public class ItemDetail {
         this.point = point;
         this.deliveryInfo = deliveryInfo;
         this.deliveryFee = deliveryFee;
-        this.nPrices = nPrices;
-        this.sPrices = sPrices;
+        this.nPrice = nPrice;
+        this.sPrice = sPrice;
         this.detailSection = detailSection;
         this.badges = badges;
         this.inStock = inStock;
@@ -43,9 +43,9 @@ public class ItemDetail {
     public static ItemDetail of(String topImage, List<String> thumbImages,
                                 String title, String productDescription,
                                 String point, String deliveryInfo,
-                                String deliveryFee, String nPrices, String sPrices,
+                                String deliveryFee, String nPrice, String sPrice,
                                 List<String> detailSection, List<String> badges, Boolean inStock) {
-        return new ItemDetail(topImage, thumbImages, title, productDescription, point, deliveryInfo, deliveryFee, nPrices, sPrices, detailSection, badges, inStock);
+        return new ItemDetail(topImage, thumbImages, title, productDescription, point, deliveryInfo, deliveryFee, nPrice, sPrice, detailSection, badges, inStock);
     }
 
     @JsonProperty("top_image")
@@ -84,14 +84,14 @@ public class ItemDetail {
     }
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty("n_prices")
-    public String getnPrices() {
-        return nPrices;
+    @JsonProperty("n_price")
+    public String getnPrice() {
+        return nPrice;
     }
 
-    @JsonProperty("s_prices")
-    public String getsPrices() {
-        return sPrices;
+    @JsonProperty("s_price")
+    public String getsPrice() {
+        return sPrice;
     }
 
     @JsonProperty("detail_section")
@@ -99,7 +99,7 @@ public class ItemDetail {
         return detailSection;
     }
 
-    @JsonProperty("badge")
+    @JsonProperty("badges")
     public List<String> getBadges() {
         return badges;
     }

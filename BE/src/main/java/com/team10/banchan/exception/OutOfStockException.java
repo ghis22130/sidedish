@@ -1,7 +1,13 @@
 package com.team10.banchan.exception;
 
 public class OutOfStockException extends RuntimeException {
-    public OutOfStockException(String message) {
+    private final Integer currentStock;
+    public OutOfStockException(String message, Integer currentStock) {
         super(message);
+        this.currentStock = currentStock;
+    }
+
+    public Integer getCurrentStock() {
+        return currentStock;
     }
 }

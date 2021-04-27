@@ -2,6 +2,7 @@ package com.team10.banchan.controller;
 
 import com.team10.banchan.dto.ItemDetailResponse;
 import com.team10.banchan.dto.OrderInfo;
+import com.team10.banchan.dto.OrderRequest;
 import com.team10.banchan.model.Order;
 import com.team10.banchan.response.ResponseBody;
 import com.team10.banchan.service.ItemDetailService;
@@ -30,7 +31,7 @@ public class ItemDetailController {
     }
 
     @PostMapping("/{itemId}/order")
-    public ResponseBody<OrderInfo> order(@PathVariable Long itemId, @RequestBody Integer quantity) {
-        return ResponseBody.ok(itemDetailService.order(itemId, quantity));
+    public ResponseBody<OrderInfo> order(@PathVariable Long itemId, @RequestBody OrderRequest orderRequest) {
+        return ResponseBody.ok(itemDetailService.order(itemId, orderRequest.getQuantity()));
     }
 }

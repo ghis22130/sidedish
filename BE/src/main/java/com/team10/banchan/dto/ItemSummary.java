@@ -20,14 +20,14 @@ public class ItemSummary {
     private final String nPrice;
     private final String sPrice;
 
-    private final List<String> badge;
+    private final List<String> badges;
 
     private ItemSummary(Long id,
                         String image, String alt,
                         List<String> deliveryType,
                         String title, String description,
                         String nPrice, String sPrice,
-                        List<String> badge) {
+                        List<String> badges) {
         this.id = id;
         this.image = image;
         this.alt = alt;
@@ -36,7 +36,7 @@ public class ItemSummary {
         this.description = description;
         this.nPrice = nPrice;
         this.sPrice = sPrice;
-        this.badge = badge;
+        this.badges = badges;
     }
 
     public static ItemSummary of(Long id,
@@ -44,8 +44,8 @@ public class ItemSummary {
                                  List<String> deliveryType,
                                  String title, String description,
                                  String nPrice, String sPrice,
-                                 List<String> badge) {
-        return new ItemSummary(id, image, alt, deliveryType, title, description, nPrice, sPrice, badge);
+                                 List<String> badges) {
+        return new ItemSummary(id, image, alt, deliveryType, title, description, nPrice, sPrice, badges);
     }
 
     @JsonProperty("detail_hash")
@@ -89,9 +89,9 @@ public class ItemSummary {
         return sPrice;
     }
 
-    @JsonProperty("badge")
-    public List<String> getBadge() {
-        return badge;
+    @JsonProperty("badges")
+    public List<String> getBadges() {
+        return badges;
     }
 
 }
