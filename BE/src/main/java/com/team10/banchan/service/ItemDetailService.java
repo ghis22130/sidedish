@@ -3,17 +3,14 @@ package com.team10.banchan.service;
 import com.team10.banchan.dto.ItemDetailResponse;
 import com.team10.banchan.dto.OrderInfo;
 import com.team10.banchan.exception.NotFoundException;
-import com.team10.banchan.exception.OutOfStockException;
 import com.team10.banchan.model.Item;
 import com.team10.banchan.model.Order;
 import com.team10.banchan.repository.ItemRepository;
 import com.team10.banchan.repository.OrderRepository;
-import org.graalvm.compiler.core.common.type.ArithmeticOpTable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
