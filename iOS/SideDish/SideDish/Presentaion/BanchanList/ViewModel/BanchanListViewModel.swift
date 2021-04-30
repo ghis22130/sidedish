@@ -14,7 +14,7 @@ struct BanchanListViewModelAction {
 
 class BanchanListViewModel {
     
-    @Published var menu: [[Banchan]]
+    @Published private (set) var menu: [[Banchan]]
     private var fetchBanchanListUseCase: FetchBanchanListUseCase
     private var action: BanchanListViewModelAction
     
